@@ -1,16 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import { ApolloProvider } from '@apollo/react-hooks'
+
+import { QueryClient, QueryClientProvider } from 'react-query'
 import App from './components/App'
-import client from './client'
 import './index.css'
+
+const queryClient = new QueryClient()
 
 const Root = () => (
   <BrowserRouter>
-    <ApolloProvider client={client}>
+    <QueryClientProvider client={queryClient}>
       <App />
-    </ApolloProvider>
+    </QueryClientProvider>
   </BrowserRouter>
 )
 
